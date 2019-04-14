@@ -1,5 +1,5 @@
 {
-  "name": "history-hook",
+  "name": "use-history",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,15 +8,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/quarterto/history-hook.git"
+    "url": "git+https://github.com/quarterto/use-history.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/quarterto/history-hook/issues"
+    "url": "https://github.com/quarterto/use-history/issues"
   },
-  "homepage": "https://github.com/quarterto/history-hook#readme",
+  "homepage": "https://github.com/quarterto/use-history#readme",
   "dependencies": {
     "react": "^16.8.6"
   }
