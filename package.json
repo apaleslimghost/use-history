@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/quarterto/use-history#readme",
   "dependencies": {
-    "react": "^16.8.6"
+    "react": "^16.8.6",
+    "reactn": "^1.0.0"
   }
 }
