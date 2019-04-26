@@ -23,6 +23,7 @@ const handleLink = event => {
 const Link = props => createElement(
 	'a',
 	Object.assign(
+		{},
 		props,
 		{ onClick: handleLink }
 	)
