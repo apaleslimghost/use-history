@@ -12,7 +12,9 @@ const navigate = (url, state = {}, { push = true } = {}) => {
 		useHistoryState: state,
 	})
 
-	window.history.pushState(state, null, url)
+	if(push) {
+		window.history.pushState(state, null, url)
+	}
 }
 
 const handleLink = event => {
