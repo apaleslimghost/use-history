@@ -7,12 +7,12 @@ setGlobal({
 })
 
 const useNavigation = () => {
-	const [url, setUrl] = useGlobal('useHistoryUrl')
-	const [state, setState] = useGlobal('useHistoryState')
-
 	const navigate = (url, state = {}, { push = true } = {}) => {
-		setUrl(url)
-		setState(state)
+		setGlobal({
+			useHistoryUrl: url,
+			useHistoryState: state,
+		})
+
 		window.history.pushState(state, null, url)
 	}
 
@@ -30,16 +30,21 @@ const useNavigation = () => {
 	)
 
 	return {
-		url,
-		state,
 		navigate,
 		handleLink,
 		Link,
 	}
 }
 
+const useCurrentUrl = () => {
+	const [url] = useGlobal('useHistoryUrl')
+	const [state] = useGlobal('useHistoryState')
+	return {url, state}
+}
+
 const useHistory = () => {
 	const navigation = useNavigation()
+	const url = useCurrentUrl()
 
 	const handlePopstate = ev => {
 		navigation.navigate(location.pathname, ev.state, { push: false })
@@ -51,7 +56,7 @@ const useHistory = () => {
 		return () => window.removeEventListener('popstate', handlePopstate)
 	})
 
-	return navigation
+	return Object.assign(url, navigation)
 }
 
 module.exports = useHistory
@@ -59,4 +64,5 @@ module.exports = useHistory
 Object.assign(module.exports, {
 	useHistory,
 	useNavigation,
+	useCurrentUrl,
 })
