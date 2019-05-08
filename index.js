@@ -19,7 +19,7 @@ const navigate = (url, state = {}, { push = true } = {}) => {
 
 const handleLink = event => {
 	event.preventDefault()
-	navigate(event.target.pathname)
+	navigate(event.currentTarget.pathname)
 }
 
 const Link = props => createElement(
