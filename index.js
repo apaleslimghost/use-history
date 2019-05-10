@@ -18,8 +18,10 @@ const navigate = (url, state = {}, { push = true } = {}) => {
 }
 
 const handleLink = event => {
-	event.preventDefault()
-	navigate(event.currentTarget.pathname)
+	if(event.button === 0 && !(event.ctrlKey || event.metaKey || event.shiftKey || event.altKey)) {
+		event.preventDefault()
+		navigate(event.currentTarget.pathname)
+	}
 }
 
 const Link = props => createElement(
@@ -27,7 +29,14 @@ const Link = props => createElement(
 	Object.assign(
 		{},
 		props,
-		{ onClick: handleLink }
+		{
+			onClick(event) {
+				handleLink(event)
+				if(props.onClick) {
+					props.onClick(event)
+				}
+			}
+		}
 	)
 )
 
