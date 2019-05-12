@@ -5,10 +5,10 @@ the history api as a [react hook](https://reactjs.org/docs/hooks-intro.html)
 ## usage
 
 ```js
-const useHistory = require('use-history')
+import useHistory, {Link} from 'use-history'
 
 const App = () => {
-	const {url, Link} = useHistory()
+	const {url} = useHistory()
 
 	return <>
 		url is {url}
